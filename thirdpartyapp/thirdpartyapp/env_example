@@ -8,8 +8,10 @@ ALLOWED_HOSTS='*'
 #-------#
 # oAuth #
 #-------#
-CLIENT_ID=thirdparty
+CLIENT_ID=pythirdparty
 CLIENT_SECRET=pleasechange
 CLIENT_REDIRECT_URL=http://127.0.0.1:8002/appauth/code
+CLIENT_REDIRECT_V2_URL=http%3A%2F%2F127.0.0.1%3A8002%2Fappauth%2Fcode
 CLIENT_AUTHORIZE_URL=http://localhost:8000/authorize
+CLIENT_BASE_URL=http://localhost:8000
 CLIENT_TOKEN_URL=http://localhost:8000/token
