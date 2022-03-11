@@ -1,0 +1,15 @@
+#--------#
+# Django #
+#--------#
+SECRET_KEY=xyz
+DEBUG=True
+ALLOWED_HOSTS='*'
+
+#-------#
+# oAuth #
+#-------#
+CLIENT_ID=thirdparty
+CLIENT_SECRET=pleasechange
+CLIENT_REDIRECT_URL=http://127.0.0.1:8002/appauth/code
+CLIENT_AUTHORIZE_URL=http://localhost:8000/authorize
+CLIENT_TOKEN_URL=http://localhost:8000/token
