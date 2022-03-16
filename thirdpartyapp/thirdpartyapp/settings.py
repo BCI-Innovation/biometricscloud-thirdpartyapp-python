@@ -19,6 +19,9 @@ import re
 import sys
 from django.utils.log import DEFAULT_LOGGING
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 '''
 django-environ
@@ -49,12 +52,6 @@ ADMIN_ENABLED = False
 
 # Application definition
 
-# This configuration ensures that all authenticated users from the public
-# schema to exist authenticated in the tenant schemas as well. This is
-# important to have "django-tenants" work
-# SESSION_COOKIE_DOMAIN = '.' + env("WORKERY_APP_HTTP_DOMAIN")
-
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -62,10 +59,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'app',
-
     'corsheaders',
+    'app',
 ]
 
 MIDDLEWARE = [
@@ -133,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -151,8 +146,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 
 
 # django-cors-headers

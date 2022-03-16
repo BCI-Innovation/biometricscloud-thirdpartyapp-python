@@ -1,5 +1,6 @@
 import os
 from django.shortcuts import render
+from django.utils.http import urlencode
 from django.http import HttpResponse
 from thirdpartyapp.settings import (
     CLIENT_ID,
@@ -9,12 +10,15 @@ from thirdpartyapp.settings import (
     CLIENT_BASE_URL,
     CLIENT_TOKEN_URL
 )
-
+import urllib.parse
 import requests
 from requests.auth import HTTPBasicAuth
 
 def index(request):
-    url = "http://localhost:8000/authorize?client_id=pythirdparty&redirect_uri=http%3A%2F%2F127.0.0.1%3A8002%2Fappauth%2Fcode&response_type=code&scope=all"
+    redirect_url = CLIENT_REDIRECT_URL
+    encoded_redirect_url = urllib.parse.quote_plus(redirect_url) # https://www.urlencoder.io/python/
+    print("encoded_redirect_url", encoded_redirect_url)
+    url = CLIENT_AUTHORIZE_URL+"?client_id="+CLIENT_ID+"&redirect_uri="+encoded_redirect_url+"&response_type=code&scope=all"
     return HttpResponse(url)
 
 
